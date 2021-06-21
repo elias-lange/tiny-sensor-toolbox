@@ -4,11 +4,11 @@
 
 class DS18B20 : public AbstractSensor {
  public:
-  explicit DS18B20(AbstractLogger *logger) : AbstractSensor(logger) {
+  explicit DS18B20() : AbstractSensor() {
 
   }
 
   virtual void loop() {
-    logger_->log("Nachricht vom DS18B20.");
+    LOG("Nachricht vom %s.", "DS18B20");
   }
 };

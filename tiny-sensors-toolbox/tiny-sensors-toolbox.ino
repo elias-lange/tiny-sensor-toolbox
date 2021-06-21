@@ -3,10 +3,11 @@
 
 
 SerialLogger logger;
-DS18B20 temp1(&logger);
+DS18B20 temp1;
 
 void setup() {
   logger.init(9600);
+  SET_GLOBAL_LOGGER(&logger);
 }
 
 void loop() {
