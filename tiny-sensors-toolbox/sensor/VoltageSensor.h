@@ -7,10 +7,6 @@ class VoltageSensor : public AbstractSensor {
   explicit VoltageSensor(int pin) : AbstractSensor(), pin(pin) {
   }
 
-  void setup() {
-
-  }
-
   virtual void loop() {
     int voltage = analogRead(pin);
     LOG("Voltage [digital value]: %d", voltage);
