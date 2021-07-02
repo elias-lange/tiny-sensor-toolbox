@@ -5,23 +5,24 @@
 
 #include "AbstractSensor.h"
 
-class DS18B20Sensor : public AbstractSensor {
+class DS18B20Sensor : public AbstractSensor<float> {
  public:
-  explicit DS18B20Sensor(int pin) : AbstractSensor(), dataPin(pin), oneWire(pin), dallasTemperature(&oneWire) {
+  explicit DS18B20Sensor(int dataPin) : AbstractSensor(), dataPin(dataPin), oneWire(dataPin), sensor(&oneWire) {
   }
 
   void setup() {
-    dallasTemperature.begin();
+    sensor.begin();
   }
 
   virtual void loop() {
-    dallasTemperature.requestTemperatures(); 
-    float temperature = dallasTemperature.getTempCByIndex(0);
-    LOG("DS18B20: %f", temperature);
+    sensor.requestTemperatures(); 
+    data = sensor.getTempCByIndex(0);
+    LOG("DS18B20: %.2f°C", data);
+    setNewDataFlag();
   }
 
  private:
   const int dataPin;
   OneWire oneWire; 
-  DallasTemperature dallasTemperature;
+  DallasTemperature sensor;
 };

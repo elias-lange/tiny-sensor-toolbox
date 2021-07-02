@@ -1,18 +1,22 @@
 #include "SerialLogger.h"
-// #include "sensor/DS18B20Sensor.h"
-#include "sensor/VoltageSensor.h"
+#include "sensor/DS18B20Sensor.h"
+// #include "sensor/VoltageSensor.h"
 
 
 SerialLogger logger;
-VoltageSensor temp1(4);
+DS18B20Sensor temp1(4);
 
 void setup() {
   logger.init(9600);
   SET_GLOBAL_LOGGER(&logger);
-//  temp1.setup();
+  temp1.setup();
 }
 
 void loop() {
   temp1.loop();
-  delay(1000);
+  if (temp1.hasNewData()) {
+    float c = temp1.getData();
+    Serial.printf("The temperature is %.2f°C.\n", c);
+    delay(1000);
+  }
 }
