@@ -1,6 +1,6 @@
 #pragma once
 
-#include <OneWire.h> 
+#include <OneWire.h>
 #include <DallasTemperature.h>
 
 #include "AbstractSensor.h"
@@ -15,14 +15,14 @@ class DS18B20Sensor : public AbstractSensor<float> {
   }
 
   virtual void loop() {
-    sensor.requestTemperatures(); 
+    sensor.requestTemperatures();
     data = sensor.getTempCByIndex(0);
-    LOG("DS18B20: %.2f°C", data);
     setNewDataFlag();
+    LOG("DS18B20: %.2f°C", data);
   }
 
  private:
   const int dataPin;
-  OneWire oneWire; 
+  OneWire oneWire;
   DallasTemperature sensor;
 };
