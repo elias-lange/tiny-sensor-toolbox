@@ -10,7 +10,7 @@ class DS18B20Sensor : public AbstractSensor<float> {
   explicit DS18B20Sensor(int dataPin) : AbstractSensor(), dataPin(dataPin), oneWire(dataPin), sensor(&oneWire) {
   }
 
-  void setup() {
+  virtual void setup() {
     sensor.begin();
   }
 

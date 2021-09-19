@@ -5,6 +5,8 @@
 template<typename T>
 class AbstractSensor {
  public:
+  virtual void setup() = 0;
+
   virtual void loop() = 0;
 
   boolean hasNewData() const {

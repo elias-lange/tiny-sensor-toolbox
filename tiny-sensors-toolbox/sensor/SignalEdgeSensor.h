@@ -21,7 +21,7 @@ void IRAM_ATTR onSignalEdge() {
 
 class SignalEdgeSensor : public AbstractSensor<float> {
  public:
-  SignalEdgeSensor(int dataPin, float measurementPeriod = 1.0, float debouncePeriod = 0.001) : AbstractSensor(), dataPin(dataPin), measurementPeriod_ms(static_cast<int>(1000.0f * measurementPeriod)) {
+  explicit SignalEdgeSensor(int dataPin, float measurementPeriod = 1.0, float debouncePeriod = 0.001) : AbstractSensor(), dataPin(dataPin), measurementPeriod_ms(static_cast<int>(1000.0f * measurementPeriod)) {
     SignalEdgeSensorImpl::debouncePeriod_ms = static_cast<unsigned long>(1000.0f * debouncePeriod);
   }
 
@@ -30,7 +30,7 @@ class SignalEdgeSensor : public AbstractSensor<float> {
     SignalEdgeSensorImpl::signalEdgeCount = 0;
   }
 
-  void setup() {
+  virtual void setup() {
     pinMode(dataPin, INPUT);
     digitalWrite(dataPin, HIGH);
     attachInterrupt(dataPin, SignalEdgeSensorImpl::onSignalEdge, RISING);
