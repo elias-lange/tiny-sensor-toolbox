@@ -1,11 +1,11 @@
 #include "SerialLogger.h"
 // #include "sensor/DS18B20Sensor.h"
 // #include "sensor/VoltageSensor.h"
-#include "sensor/FlowSensor.h"
+#include "sensor/SignalEdgeSensor.h"
 
 
 SerialLogger logger;
-FlowSensor temp1(4);
+SignalEdgeSensor temp1(4);
 
 void setup() {
   logger.init(9600);
