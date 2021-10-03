@@ -2,20 +2,24 @@
 
 
 SerialLogger logger;
-SignalEdgeSensor temp1(4);
-// VoltageSensor temp1(4);
+// SignalEdgeSensor s1(4);
+// VoltageSensor s1(4);
+LevelSensor s1(14);
 
 void setup() {
   logger.init(9600);
   SET_GLOBAL_LOGGER(&logger);
-  temp1.setup();
+  s1.setup();
+  s1.addLevel(33);
+  s1.addLevel(32);
+  s1.addLevel(35);
 }
 
 void loop() {
-  temp1.loop();
-  if (temp1.hasNewData()) {
-    float c = temp1.getData();
-    Serial.printf("The temperature is %.2f°C.\n", c);
+  s1.loop();
+  if (s1.hasNewData()) {
+    int l = s1.getData();
+    Serial.printf("The level is %d.\n", l);
     delay(1000);
   }
 }
