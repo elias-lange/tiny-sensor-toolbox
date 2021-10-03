@@ -1,6 +1,6 @@
 #pragma once
 
-#include "../AbstractLogger.h"
+#include "../logger/AbstractLogger.h"
 
 template<typename T>
 class AbstractSensor {

@@ -1,7 +1,4 @@
-#include "../../tiny-sensor-toolbox/SerialLogger.h"
-#include "../../tiny-sensor-toolbox/sensor/DS18B20Sensor.h"
-#include "../../tiny-sensor-toolbox/sensor/VoltageSensor.h"
-#include "../../tiny-sensor-toolbox/sensor/SignalEdgeSensor.h"
+#include "tiny-sensor-toolbox.h"
 
 
 SerialLogger logger;
