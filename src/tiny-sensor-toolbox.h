@@ -3,3 +3,5 @@
 #include "sensor/LevelSensor.h"
 #include "sensor/SignalEdgeSensor.h"
 #include "sensor/VoltageSensor.h"
+#include "PeriodicTimer.h"
+#include "ThingSpeakSender.h"

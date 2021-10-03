@@ -2,6 +2,8 @@
 
 SerialLogger logger;
 LevelSensor levelSensor(14);
+PeriodicTimer timer(20.0f);
+ThingSpeakSender sender("MySSID", "MyWiFiPassword", "MyWriteAPIKey");
 
 void setup() {
   logger.init(9600);
@@ -13,10 +15,10 @@ void setup() {
 }
 
 void loop() {
-  levelSensor.loop();
-  if (levelSensor.hasNewData()) {
+  if (timer.hasFired()) {
+    levelSensor.loop();
     int l = levelSensor.getData();
     Serial.printf("The level is %d.\n", l);
-    delay(1000);
+    sender.sendMeasurement(String(l));
   }
 }
