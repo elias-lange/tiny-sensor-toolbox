@@ -1,6 +1,5 @@
 #include "tiny-sensor-toolbox.h"
 
-
 SerialLogger logger;
 // SignalEdgeSensor s1(4);
 // VoltageSensor s1(4);
