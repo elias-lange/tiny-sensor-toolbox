@@ -34,7 +34,7 @@ Aktuell unterstützt die Tiny-Sensor-Toolbox folgende Messfühler/Sensorelemente
 
 Aktuell wird nur ein Dienst unterstützt:
 
-* **ThingSpeakSender.h:** Sendet einen Messwert über ein angegebenes WLAN an den IoT-Analytics-Dienst (ThingSpeak)[https://thingspeak.com/]. Die WLAN-Verbindung wird für jede Übertragung neu aufgebaut.
+* **ThingSpeakSender.h:** Sendet einen Messwert über ein angegebenes WLAN an den IoT-Analytics-Dienst [ThingSpeak](https://thingspeak.com/). Die WLAN-Verbindung wird für jede Übertragung neu aufgebaut.
 
 ## Weitere Funktionen
 
@@ -43,4 +43,4 @@ Aktuell wird nur ein Dienst unterstützt:
 
 ## Beispiele
 
-Der Ordner (`examples`)[examples/] enthält Beispiele für die Verwendung der Tiny-Sensor-Toolbox.
+Der Ordner [`examples`](examples/) enthält Beispiele für die Verwendung der Tiny-Sensor-Toolbox.
