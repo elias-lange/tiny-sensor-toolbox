@@ -6,6 +6,9 @@ Dieses Repository enthält eine kleine Toolbox zur Programmierung von IoT-Sensor
 
 * [AbstractSensor-Klasse](#abstractsensor-klasse)
 * [Unterstützte Messfühler/Sensorelemente](#unterstützte-messfühlersensorelemente)
+* [Unterstützte Dienste/Protokolle](#unterstützte-diensteprotokolle)
+* [Weitere Funktionen](#weitere-funktionen)
+* [Beispiele](#beispiele)
 
 ## AbstractSensor-Klasse
 
@@ -20,20 +23,24 @@ Zur Implementierung eigener Klassen zum Auslesen von Messfühlern/Sensorelemente
 
 ## Unterstützte Messfühler/Sensorelemente
 
-Aktuell unterstützt die Tiny-Sensor-Toolbox folgende Messfühler/Sensorelemente. In Klammern ist der Datentyp des Messwerts angegeben.:
+Aktuell unterstützt die Tiny-Sensor-Toolbox folgende Messfühler/Sensorelemente. In Klammern ist der Datentyp des Messwerts angegeben:
 
 * **DS18B20Sensor.h (float):** Der Temperaturfühler DS18B20 von Maxim Integrated Products, Inc.
 * **LevelSensor.h (int):** Prüft an einer gegebenen Sequenz von Pins _P0_, _P1_, ..., _Pn_, an welcher Teilsequenz _P0_ bis _Pm_ eine einstellbare Mindestspannung liegt und gibt die Anzahl _m+1_ als Messwert zurück. Mit einer Kaskade schaltender Sensoren (z.B. unterschiedlich lange Drähte in einer Flüssigkeit) kann so ein Füllstandsmesser o.ä. gebaut werden.
 * **SignalEdgeSensor.h (int)** Zählt Ereignisse (Signalflanken) an einem Pin per Interrupt und liefert die Rate (Ereignisse pro Sekunde) zurück. Das Messintervall kann beliebig eingestellt werden.
-* **VoltageSensor (float)** Liest einen analogen Spannungswert an einem gegebenen Pin mit `analogRead(..)` aus, liefert aber eine Gleitkommazahl statt einer ganzzahligen Repräsentation. Der Spannungsbereich und der Bereich der ganzzahligen Repräsentation wird im Konstruktor eingestellt.
+* **VoltageSensor (float)** Liest einen analogen Spannungswert an einem gegebenen Pin mit `analogRead(..)` aus, liefert aber eine Gleitkommazahl statt einer ganzzahligen Repräsentation. Der Spannungsbereich und der Bereich der ganzzahligen Repräsentation werden im Konstruktor eingestellt.
 
 ## Unterstützte Dienste/Protokolle
 
 Aktuell wird nur ein Dienst unterstützt:
 
-* **ThingSpeakSender.h:** Sendet einen Messwert über ein angegebenens WLAN an den IoT-Analytics-Dienst (ThingSpeak)[https://thingspeak.com/]. Die WLAN-Verbindung wird für jede Übertragung neu aufgebaut.
+* **ThingSpeakSender.h:** Sendet einen Messwert über ein angegebenes WLAN an den IoT-Analytics-Dienst (ThingSpeak)[https://thingspeak.com/]. Die WLAN-Verbindung wird für jede Übertragung neu aufgebaut.
 
-## Weitere Funktionen:
+## Weitere Funktionen
 
 * **AbstractLogger.h** definiert ein Makro `LOG(..)` zum Logging im printf-Stil. **SerialLogger.h** implementiert die Übertragung der Logging-Daten per `Serial`.
 * **PeriodicTimer.h** erlaubt die Realisierung periodischer Timer, z.B. zum periodischen Auslesen eines Messfühlers/Sensorelements.
+
+## Beispiele
+
+Der Ordner (`examples`)[examples/] enthält Beispiele für die Verwendung der Tiny-Sensor-Toolbox.
