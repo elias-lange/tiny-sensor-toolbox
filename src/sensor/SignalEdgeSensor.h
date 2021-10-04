@@ -45,7 +45,7 @@ class SignalEdgeSensor : public AbstractSensor<float> {
       data = signalEdgeCount / (duration_ms / 1000.0f);
       setNewDataFlag();
       startNewMeasurmentPeriod();
-      LOG("SignalEdgeSensor: %d signal edges in %lu ms, i.e. %.3f rps", signalEdgeCount, duration_ms, data);
+      LOG("SignalEdgeSensor: %d signal edges in %lu ms, i.e. %.3f 1/s", signalEdgeCount, duration_ms, data);
     }
   }
 
