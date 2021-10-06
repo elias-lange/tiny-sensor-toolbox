@@ -48,6 +48,10 @@ class SignalEdgeSensor : public AbstractSensor<float> {
     }
   }
 
+  unsigned long getTimeOfLastSignalEdge() {
+    return SignalEdgeSensorImpl::timeOfLastSignalEdge_ms;
+  }
+
  private:
   static volatile int signalEdgeCount;
   const int dataPin;
