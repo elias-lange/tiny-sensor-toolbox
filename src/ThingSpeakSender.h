@@ -9,8 +9,20 @@ class ThingSpeakSender {
     // Nothing to do.
   }
 
-  bool sendMeasurement(String value1) {
+  bool sendMeasurement(String value1, String value2 = "", String value3 = "", String value4 = "", String value5 = "") {
     String url = String("https://api.thingspeak.com/update?api_key=") + String(apiKey) + String("&field1=") + value1;
+    if (value2.length() > 0) {
+      url = url + String("&field2=") + value2;
+    }
+    if (value3.length() > 0) {
+      url = url + String("&field3=") + value3;
+    }
+    if (value4.length() > 0) {
+      url = url + String("&field4=") + value4;
+    }
+    if (value5.length() > 0) {
+      url = url + String("&field5=") + value5;
+    }
 
     boolean success = false;
     WiFiClient client;
