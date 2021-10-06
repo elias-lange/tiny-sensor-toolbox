@@ -32,7 +32,6 @@ class SignalEdgeSensor : public AbstractSensor<float> {
 
   virtual void setup() {
     pinMode(dataPin, INPUT);
-    digitalWrite(dataPin, HIGH);
     attachInterrupt(dataPin, SignalEdgeSensorImpl::onSignalEdge, RISING);
     sei();
     startNewMeasurmentPeriod();
